@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Friends Quiz</title>
+</head>
+
+<body>
+
+    <div id="start" class="start-btn"><button class="btn">Start Quiz</button></div>
+    <div id="info-box" class="info-box hide">
+        <div id="rules-title" class="rules-title">
+            <span>Rules of the quiz!</span>
+        </div>
+        <div id="rules-list" class="rules-list">
+            <div class="rule">You can only select one answer.</div>
+            <div class="rule">You will have 20 seconds for each question.</div>
+            <div class="rule"> You will get a point for every question you get right.</div>
+            <div class="rule"> Have fun!</div>
+        </div>
+        <div>
+            <button id="continue-button" class="continue btn">Continue</button>
+        </div>
+    </div>
+
+    <div id="characters" class="characters hide">
+        <h1 id="heading" class="heading"> Choose which friends character you would like to be quizzed on </h1>
+        <div id="option-buttons" class="quiz-btn-grid options">
+            <button aria-label="Option Button 1" id="pheobe-btn" class="btn" value="pheobe">Pheobe</button>
+            <button aria-label="Option Button 2" id="joey-btn" class="btn" value="joey">Joey</button>
+            <button aria-label="Option Button 3" id="rachel-btn" class="btn" value="rachel">Rachel</button>
+            <button aria-label="Option Button 4" id="ross-btn" class="btn" value="ross">Ross</button>
+            <button aria-label="Option Button 5" id="monica-btn" class="btn" value="monica">Monica</button>
+            <button aria-label="Option Button 6" id="chandler-btn" class="btn" value="chandler">Chandler</button>
+        </div>
+    </div>
+
+    <div id="quiz" class="quiz hide">
+        <header>
+            <h1>Friends Quiz</h1>
+            <div class="timer">
+                <div class="time-left">Time left</div>
+                <div class="time-sec">20</div>
+            </div>
+        </header>
+
+        <section>
+            <div class="container" id="question-container">
+                <p id="main-question" class="main-question">Question</p>
+                <div id="answer-section" class="btn-grid answer-buttons">
+                    <button aria-label="Answer Button 1" id="answer1-btn" class="btn" value="a">Answer 1</button>
+                    <button aria-label="Answer Button 2" id="answer2-btn" class="btn" value="b">Answer 2</button>
+                    <button aria-label="Answer Button 3" id="answer3-btn" class="btn" value="c">Answer 3</button>
+                    <button aria-label="Answer Button 4" id="answer4-btn" class="btn" value="d">Answer 4</button>
+                </div>
+            </div>
+        </section>
+        <footer id="score" class="score">
+            <div class="score">
+                <h2>Score</h2>
+                <script>
+                    var score = 0;
+
+                    function add1() {
+                        alert("Adding +1 to your score!");
+                        ++score;
+                        alert(score);
+                    };
+                </script>
+            </div>
+        </footer>
+    </div>
+
+    <div id="results" class="results hide">
+        <h1> Congratualtions! You have answered all the questions on <span>character</span>! You scored
+            <span>score</span>!</h1>
+        <div class="replay"><button id="replay" class="continue btn">Replay!</button></div>
+    </div>
+    <script src="assets/js/script.js" type="module"></script>
+</body>
+
+</html>
