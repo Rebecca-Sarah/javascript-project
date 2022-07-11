@@ -12,11 +12,9 @@ const rossBtn = document.getElementById("ross-btn");
 const monicaBtn = document.getElementById("monica-btn");
 const chandlerBtn = document.getElementById("chandler-btn");
 const quizElement = document.getElementById("quiz");
-const characterHeading = document.getElementById("heading");
-const optionButtons = document.getElementById("option-buttons");
-const next = document.getElementById("next-btn");
-const questionElement = document.getElementById("question");
-const submitBtn = document.getElementById("submit-btn");
+// const optionButtons = document.getElementById("option-buttons");
+// const next = document.getElementById("next-btn");
+// const questionElement = document.getElementById("question");
 const resultsElement = document.getElementById("results");
 const mainQuestion = document.getElementById("main-question");
 const answer1 = document.getElementById("answer1-btn");
@@ -25,18 +23,13 @@ const answer3 = document.getElementById("answer3-btn");
 const answer4 = document.getElementById("answer4-btn");
 const replayBtn = document.getElementById("replay");
 
-let currentQuestionCategory = "";
-let currentQuestionIndex = 0;
-let currentAnswerCategory = "";
-var score = 0;
-let timer;
-let timeLeft;
-let quizLength = 3;
+// let currentQuestionCategory = "";
+// let currentQuestionIndex = 0;
 let index = 0;
 let currentQuestions;
 
 startBtn.addEventListener("click", ruleElement);
-continueBtn.addEventListener("click", chooseCategory)
+continueBtn.addEventListener("click", chooseCategory);
 pheobeBtn.addEventListener("click", () => {
     quiz("pheobeQuestions");
 });
@@ -82,22 +75,22 @@ function quiz(choice) {
 
 function displayQuestion() {
     mainQuestion.innerHTML = currentQuestions[index].question;
-    answer1.innerHTML = currentQuestions[index].answers["a"];
-    answer2.innerHTML = currentQuestions[index].answers["b"];
-    answer3.innerHTML = currentQuestions[index].answers["c"];
-    answer4.innerHTML = currentQuestions[index].answers["d"];
-}
-
-function startTimer(time) {
-
+    answer1.innerHTML = currentQuestions[index].answers.a;
+    answer2.innerHTML = currentQuestions[index].answers.b;
+    answer3.innerHTML = currentQuestions[index].answers.c;
+    answer4.innerHTML = currentQuestions[index].answers.d;
 }
 
 function checkAnswer(event) {
-    let answerChosen = event.target.innerHTML;
+    // let scoreText = document.getElementById("scoreText");
+    // var score = 0;
+    // scoreText.innerText = `Score: ${score}`
+    // let answerChosen = event.target.innerHTML;
 
     // check answer here
-    if (answerChosen === currentQuestions[index].correctAnswer) {
-        score++;
+    let answerChosen = parseInt(document.getElementById("answer-section").value)
+    if (answerChosen === currentQuestions[index].correctAnswer[0]) {
+        incrementScore();
     }
 
     // increase index number
@@ -110,47 +103,36 @@ function checkAnswer(event) {
     else displayQuestion();
 }
 
-// function quiz(questionCategory) {
-//     infoBox.classList.add("hide");
-//     characters.classList.remove("hide");
-//     quizElement.classList.remove("hide");
-//     currentQuestionCategory = questionCategory;
-//     const currentQuestion = myQuestions[currentQuestionCategory][0].question;
-//     console.log(currentQuestion);
-//     mainQuestion.innerHTML = currentQuestion;
-//     currentAnswerCategory = questionCategory;
-//     const currentAnswers = myQuestions[currentAnswerCategory][0].answers;
-//     answer1.innerHTML = currentAnswers["a"];
-//     answer2.innerHTML = currentAnswers["b"];
-//     answer3.innerHTML = currentAnswers["c"];
-//     answer4.innerHTML = currentAnswers["d"];
-//     if (output.value === myQuestions.correctAnswer) {
-//         score++;
-//     }
-//     setTimeout(function () {
-//         difficultyGameArea.classList.add("hide");
-//         questionGameArea.classList.remove("hide");
-//         result();
-//         startTimer();
-//     }, 2000);
-// }
-
-function nextQuestion(event) {
-    currentQuestionIndex++;
-    // gameTimer.innerHTML = 20;
-    // startTimer();
-    if (currentQuestionIndex <= 3) {
-        const currentQuestion = myQuestions[currentQuestionCategory][currentQuestionIndex].question;
-        questionElement.innerHTML = currentQuestion;
-    } else if (currentQuestionIndex >= 3) {
-        next.addEventListener("click", result);
-    }
+function incrementScore() {
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
 }
+
+// function nextQuestion(event) {
+//     currentQuestionIndex++;
+//     if (currentQuestionIndex <= 3) {
+//         const currentQuestion = myQuestions[currentQuestionCategory][currentQuestionIndex].question;
+//         questionElement.innerHTML = currentQuestion;
+//     } else if (currentQuestionIndex >= 3) {
+//         next.addEventListener("click", result);
+//     }
+// }
 
 
 function result() {
     quizElement.classList.add("hide");
     resultsElement.classList.remove("hide");
     resultsElement.style.display = "block";
+    let score = incrementScore();
+    let resultText = document.getElementById("result-text");
+    resultText.innerText = `Congratualtions! You have answered all the questions! You scored
+    ${score}!`;
+}
 
+replayBtn.addEventListener("click", quizRestart);
+
+function quizRestart() {
+    resultsElement.classList.add("hide");
+    resultsElement.style.display = "none";
+    ruleElement();
 }

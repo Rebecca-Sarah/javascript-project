@@ -4,8 +4,7 @@
 }
 
 body {
-    background-image: url('../images/pexels-carlos-oliva-3586966.jpg');
-    background-position: cover;
+    background-image: url('../images/pexels-carlos-oliva-3586966-min.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0;
@@ -122,18 +121,6 @@ header {
     border-bottom: 2px solid black;
 }
 
-header .timer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 145px;
-    height: 45px;
-    background-color: antiquewhite;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 0 8px;
-}
-
 h2 {
     font-size: 18px;
 }
@@ -164,4 +151,22 @@ h2 {
     display: flex;
     margin-left: 40%;
     margin-right: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .info-box {
+        height: 500px;
+    }
+
+    .quiz {
+        height: 500px;
+    }
+
+    .characters {
+        height: 500px;
+    }
+
+    .results {
+        height: 500px;
+    }
 }

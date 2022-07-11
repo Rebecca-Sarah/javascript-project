@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <meta name="description" content="A quiz for the TV show Friends fans." />
     <link href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Friends Quiz</title>
@@ -33,25 +32,21 @@
     <div id="characters" class="characters hide">
         <h1 id="heading" class="heading"> Choose which friends character you would like to be quizzed on </h1>
         <div id="option-buttons" class="quiz-btn-grid options">
-            <button aria-label="Option Button 1" id="pheobe-btn" class="btn" value="pheobe">Pheobe</button>
-            <button aria-label="Option Button 2" id="joey-btn" class="btn" value="joey">Joey</button>
-            <button aria-label="Option Button 3" id="rachel-btn" class="btn" value="rachel">Rachel</button>
-            <button aria-label="Option Button 4" id="ross-btn" class="btn" value="ross">Ross</button>
-            <button aria-label="Option Button 5" id="monica-btn" class="btn" value="monica">Monica</button>
-            <button aria-label="Option Button 6" id="chandler-btn" class="btn" value="chandler">Chandler</button>
+            <button aria-label="Option Button 1" id="pheobe-btn" class="btn" value="Pheobe">Pheobe</button>
+            <button aria-label="Option Button 2" id="joey-btn" class="btn" value="Joey">Joey</button>
+            <button aria-label="Option Button 3" id="rachel-btn" class="btn" value="Rachel">Rachel</button>
+            <button aria-label="Option Button 4" id="ross-btn" class="btn" value="Ross">Ross</button>
+            <button aria-label="Option Button 5" id="monica-btn" class="btn" value="Monica">Monica</button>
+            <button aria-label="Option Button 6" id="chandler-btn" class="btn" value="Chandler">Chandler</button>
         </div>
     </div>
 
     <div id="quiz" class="quiz hide">
         <header>
             <h1>Friends Quiz</h1>
-            <div class="timer">
-                <div class="time-left">Time left</div>
-                <div class="time-sec">20</div>
-            </div>
         </header>
 
-        <section>
+        <div>
             <div class="container" id="question-container">
                 <p id="main-question" class="main-question">Question</p>
                 <div id="answer-section" class="btn-grid answer-buttons">
@@ -61,26 +56,19 @@
                     <button aria-label="Answer Button 4" id="answer4-btn" class="btn" value="d">Answer 4</button>
                 </div>
             </div>
-        </section>
-        <footer id="score" class="score">
-            <div class="score">
-                <h2>Score</h2>
-                <script>
-                    var score = 0;
-
-                    function add1() {
-                        alert("Adding +1 to your score!");
-                        ++score;
-                        alert(score);
-                    };
-                </script>
+        </div>
+        <footer>
+            <div class="score-area">
+                <p class="scores">Correct Answers: <span id="score">0</span></p>
             </div>
         </footer>
     </div>
 
     <div id="results" class="results hide">
-        <h1> Congratualtions! You have answered all the questions on <span>character</span>! You scored
-            <span>score</span>!</h1>
+        <div id="result-text">
+            <h1> Congratualtions! You have answered all the questions! You scored
+                ${oldScore}!</h1>
+        </div>
         <div class="replay"><button id="replay" class="continue btn">Replay!</button></div>
     </div>
     <script src="assets/js/script.js" type="module"></script>
